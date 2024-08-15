@@ -1,4 +1,4 @@
 import "./style.css";
-import fetchWeatherData from "./modules/fetchWeatherData";
+import handleWeatherData from "./modules/handleWeatherData";
 
-fetchWeatherData("London");
+handleWeatherData();
