@@ -46,3 +46,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.temperature::after {
+  content: " °C";
+}
