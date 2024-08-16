@@ -9,7 +9,6 @@ async function fetchWeatherData(location) {
       throw new Error(`Place: ${location} not found`);
     }
     const data = await response.json();
-    console.log(data);
     return data;
   } catch (error) {
     console.error(error);

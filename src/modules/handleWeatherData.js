@@ -1,13 +1,30 @@
 import fetchWeatherData from "./fetchWeatherData";
 
-const searchButton = document.querySelector(".search-button");
+// const searchButton = document.querySelector(".search-button");
 
-function handleWeatherData() {
-  searchButton.addEventListener("click", () => {
-    const location = document.querySelector(".search-bar").value;
-    const weatherData = fetchWeatherData(location);
-    console.log(weatherData);
-  });
+async function handleWeatherData() {
+  const location = document.querySelector(".search-bar").value;
+  const weatherData = await fetchWeatherData(location);
+
+  const returnObject = {
+    address: weatherData.resolvedAddress,
+    weatherLike: weatherData.currentConditions.conditions,
+    temperature: weatherData.currentConditions.temp,
+    humidity: weatherData.currentConditions.humidity,
+    windspeed: weatherData.currentConditions.windspeed,
+    pressure: weatherData.currentConditions.pressure,
+    feelsLike: weatherData.currentConditions.feelslike,
+  };
+
+  let parts = returnObject.address.split(",");
+  if (parts.length < 2) {
+    returnObject.address = parts[0];
+  } else {
+    returnObject.address = parts[0] + ", " + parts[1];
+  }
+
+  console.log(returnObject);
+  return returnObject;
 }
 
 export default handleWeatherData;
