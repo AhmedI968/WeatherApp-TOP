@@ -1,4 +1,5 @@
 import "./style.css";
-import handleWeatherData from "./modules/handleWeatherData";
+import setUpEventListeners from "./modules/setUpDom";
 
 // handleWeatherData();
+setUpEventListeners();

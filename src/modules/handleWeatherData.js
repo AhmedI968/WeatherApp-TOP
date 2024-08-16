@@ -2,8 +2,7 @@ import fetchWeatherData from "./fetchWeatherData";
 
 // const searchButton = document.querySelector(".search-button");
 
-async function handleWeatherData() {
-  const location = document.querySelector(".search-bar").value;
+async function handleWeatherData(location) {
   const weatherData = await fetchWeatherData(location);
 
   const returnObject = {
