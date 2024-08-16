@@ -42,11 +42,65 @@ body {
 }
 
 .weather-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
 }
 
+.weather-general {
+  text-align: center;
+}
+
+.weather-like {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.location {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.temperature {
+  font-size: 5em;
+  position: relative;
+}
+
+.temperature::after {
+  content: " °C";
+  font-size: 0.5em;
+  position: absolute;
+  top: 0;
+  right: -1.5em;
+}
+
+.detail-info {
+  font-size: 0.9em;
+  text-align: center;
+}
+
+.feels-like {
+  margin: 5px 0;
+}
+
+.humidity::after {
+  content: "%";
+}
+
+.wind-speed::after {
+  content: " m/s";
+}
+
+.pressure::after {
+  content: " hPa";
+}
+
+.feels-like::after,
 .temperature::after {
   content: " °C";
 }

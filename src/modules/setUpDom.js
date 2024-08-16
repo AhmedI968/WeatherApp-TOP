@@ -1,7 +1,9 @@
 import handleWeatherData from "./handleWeatherData";
 
-function setUpEventListeners() {
+async function setUpEventListeners() {
   const searchButton = document.querySelector(".search-button");
+  const firstData = await handleWeatherData("New York");
+  updateDOM(firstData);
 
   searchButton.addEventListener("click", async () => {
     const location = document.querySelector(".search-bar").value;
@@ -15,17 +17,17 @@ function updateDOM(weatherData) {
   const weatherLike = document.querySelector(".weather-like");
   const temperature = document.querySelector(".temperature");
   const humidity = document.querySelector(".humidity");
-  const windspeed = document.querySelector(".windspeed");
+  const windspeed = document.querySelector(".wind-speed");
   const pressure = document.querySelector(".pressure");
   const feelsLike = document.querySelector(".feels-like");
 
   location.textContent = weatherData.address || "N/A";
   weatherLike.textContent = weatherData.weatherLike || "N/A";
   temperature.textContent = weatherData.temperature || "N/A";
-  humidity.textContent = weatherData.humidity || "N/A";
-  windspeed.textContent = weatherData.windspeed || "N/A";
-  pressure.textContent = weatherData.pressure || "N/A";
-  feelsLike.textContent = weatherData.feelsLike || "N/A";
+  humidity.textContent = `Humidity: ${weatherData.humidity || "N/A"}`;
+  windspeed.textContent = `Wind speed: ${weatherData.windspeed || "N/A"}`;
+  pressure.textContent = `Pressure: ${weatherData.pressure || "N/A"}`;
+  feelsLike.textContent = `Feels like: ${weatherData.feelsLike || "N/A"}`;
 }
 
 export default setUpEventListeners;
